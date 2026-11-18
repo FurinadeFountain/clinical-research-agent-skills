@@ -1,0 +1,4 @@
+interface:
+  display_name: "Academic Reviewer"
+  short_description: "Verify academic claims, execution evidence, and methods"
+  default_prompt: "Use $academic-reviewer to review this completed substantive academic judgment."

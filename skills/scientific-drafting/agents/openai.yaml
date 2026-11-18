@@ -1,0 +1,4 @@
+interface:
+  display_name: "科研谋篇与起草"
+  short_description: "按体裁与证据组织谋篇起草及实质重构，前置挂载行文规范并调度定向复核"
+  default_prompt: "Use $scientific-drafting (with $scientific-prose loaded up front) with brief preparation and result-level original/candidate/primary-evidence comparison. Keep prose and reader understanding with one lead; add one study comparator for source-heavy full restructuring, and keep local edits with $scientific-prose."

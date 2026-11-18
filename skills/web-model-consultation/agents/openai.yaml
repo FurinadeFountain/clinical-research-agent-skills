@@ -1,0 +1,6 @@
+interface:
+  display_name: "网页模型咨询"
+  short_description: "通过网页端模型讨论复杂问题，核实分歧并形成有依据的取舍"
+  default_prompt: "使用 $web-model-consultation，围绕当前问题的关键疑点咨询合适的网页模型，核实分歧并整合值得采纳的建议。"
+policy:
+  allow_implicit_invocation: true

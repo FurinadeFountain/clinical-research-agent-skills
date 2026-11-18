@@ -1,0 +1,66 @@
+# Zotero local API and connector routes
+
+Base URL: `http://127.0.0.1:23119`.
+
+## Desktop local API
+
+The local API is under `/api/`. It implements Zotero Web API v3 for the local logged-in desktop user.
+
+Important constraints:
+
+- Use `/api/users/0/...` for the local user by default.
+- Read requests do not require an API key.
+- Zotero versions before 10 expose a read-only Local API. Zotero 10+ also supports writes, requiring a local API key granted through Zotero and a matching `Zotero-Server-ID` header. A zotero.org Web API key is not a local key.
+- Probe `GET /api/` and the running app version before selecting a write path. Keep local object versions separate from Web API versions and other server IDs; do not invent write support in the bundled helper, which currently uses Connector imports.
+- For authorized Zotero 10+ writes, use an existing supported integration and local version preconditions, then GET the affected keys. Do not send writes to test capabilities or request new authorization during a read-only task.
+- Version-specific source: [official Local API documentation](https://www.zotero.org/support/dev/web_api/v3/local_api), checked 2026-11-17. If a later version behaves differently, refresh this source before changing the workflow.
+- Atom output is not supported locally.
+- Attachment file URLs and full text can expose local file paths or document text; only retrieve them when the user asks.
+
+Safe read routes:
+
+```text
+/api/
+/api/schema
+/api/itemTypes
+/api/itemFields
+/api/itemTypeFields?itemType=journalArticle
+/api/itemTypeCreatorTypes?itemType=journalArticle
+/api/creatorFields
+/api/users/0/collections
+/api/users/0/collections/top
+/api/users/0/items
+/api/users/0/items/top
+/api/users/0/items/trash
+/api/users/0/items/<itemKey>
+/api/users/0/items/<itemKey>/children
+/api/users/0/items?format=keys
+/api/users/0/items?format=versions
+/api/users/0/items?format=bibtex
+/api/users/0/items?include=data,citation&style=apa
+/api/users/0/items?q=<query>
+/api/users/0/tags
+/api/users/0/searches
+/api/users/0/searches/<searchKey>/items
+/api/users/0/groups
+/api/users/0/fulltext?since=0
+/api/users/0/items/<attachmentKey>/fulltext
+/api/users/0/items/<attachmentKey>/file/view/url
+```
+
+## Connector server
+
+The Zotero Connector server shares port `23119` and is used for desktop writes/imports.
+
+Useful routes:
+
+```text
+GET  /connector/ping
+POST /connector/ping
+POST /connector/getSelectedCollection
+POST /connector/import?session=<uuid>
+POST /connector/saveItems
+POST /connector/saveSnapshot
+```
+
+Use `/connector/import` for importing BibTeX/RIS strings into the currently selected Zotero library or collection. Treat connector writes as library modifications; an explicit add/import request already authorizes the specified records and destination. Ask only if the target or scope remains ambiguous.

@@ -1,0 +1,4 @@
+interface:
+  display_name: "科研构思与问题发展"
+  short_description: "从重要现象出发，独立探索不同解释，发展科学假说并按阶段评价"
+  default_prompt: "使用 $research-ideation，从当前科学问题出发独立探索不同解释，发展有价值的候选假说，并按讨论阶段核查证据与比较。"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Scientific Editorial Review"
+  short_description: "Review scientific arguments and reader understanding"
+  default_prompt: "Use $scientific-editorial-review for the assigned independent attention task on a fixed candidate. Keep argument and reader understanding together, compare result-level scope with needed primary evidence, reuse verified correspondences, and return only material findings and dependencies to the lead."
