@@ -737,7 +737,7 @@
                 <div class="branch-title">阶段文档拆分、多角色分工与核查子脚本</div>
                 <div class="tree-l2">
                   <div class="leaf">申报答辩期拆“精简标书 + 答辩备答”，湿实验启动期拆“科学设计书 + 现场操作流程”</div>
-                  <div class="leaf">单主笔配只读编辑协作细则 + 特定章节/审稿回复与双语改写规范</div>
+                  <div class="leaf">默认单主笔、按需只读编辑协作细则 + 特定章节/审稿回复与双语改写规范</div>
                   <div class="leaf">配 <span class="mini-code">lint_manuscript.py</span>、原新稿与原文三端段落比对、修订覆盖及内部链接脚本</div>
                 </div>
               </div>
@@ -810,9 +810,9 @@
                 </div>
               </div>
               <div class="branch">
-                <div class="branch-title">双视角并行审读与交叉前提核对</div>
+                <div class="branch-title">默认主笔自查、按需增配与交叉前提核对</div>
                 <div class="tree-l2">
-                  <div class="leaf">按需拆分为“全局论证编辑”与“读者理解编辑”基于同一稿本并行审读</div>
+                  <div class="leaf">默认主笔通读闭环，仅按需增配至多一位只读编辑（不与学术审阅默认叠队）</div>
                   <div class="leaf">联动核查互为前提的相邻段落，确保删减后关键解释完整保留</div>
                 </div>
               </div>
@@ -862,7 +862,7 @@
           <span class="col-num">V</span>
           <span class="col-title">论文配图、学术汇报幻灯片与参考文献核对</span>
         </div>
-        <span class="col-meta">1:1 真实物理尺寸作图 / 对照原始出版页逐字段回读</span>
+        <span class="col-meta">1:1 真实物理尺寸作图 / 分层轻重核验与按需复核</span>
       </div>
 
       <div class="stage5-grid">
@@ -925,10 +925,10 @@
               </div>
             </div>
             <div class="branch">
-              <div class="branch-title">代表页先审、只读协作与实物核验</div>
+              <div class="branch-title">秒级结构自检与按需重检交付</div>
               <div class="tree-l2">
-                <div class="leaf">先跑通关键复杂代表页再扩展同构页</div>
-                <div class="leaf">配只读审片规范与导出渲染、桌面重开核对表</div>
+                <div class="leaf">默认完成 XML/几何自检即交付路径，慢速渲染与构建解耦</div>
+                <div class="leaf">PDF 导出、逐页看图与桌面重开核验按需触发</div>
               </div>
             </div>
           </div>
@@ -949,16 +949,16 @@
               </div>
             </div>
             <div class="branch">
-              <div class="branch-title">对照权威出版页逐字段核查</div>
+              <div class="branch-title">分层核验：常规轻量 API 与定稿全字段</div>
               <div class="tree-l2">
-                <div class="leaf">核实作者顺位、刊名缩写、卷期页码、DOI 与撤稿状态</div>
+                <div class="leaf">常规批量入库经官方 API 校验核心 5 字段；定稿走全字段核查</div>
                 <div class="leaf">区分身份 / 元数据 / PDF / 正文论断四档已核状态</div>
               </div>
             </div>
             <div class="branch">
-              <div class="branch-title">入库回读比对与首引顺序导出</div>
+              <div class="branch-title">定稿回读比对与首引顺序导出</div>
               <div class="tree-l2">
-                <div class="leaf">分批写入后重新读回逐项核对，确保入库数据与源记录一致</div>
+                <div class="leaf">正式投稿文献表分批回读对账，避免日常逐条抓网页阻塞</div>
                 <div class="leaf">按正文首次引用排序导出 + <span class="mini-code">bibliography_gate.py</span></div>
               </div>
             </div>

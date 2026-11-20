@@ -43,7 +43,7 @@ description: Structure, draft, or substantially restructure scientific papers, r
 | 局部措辞调整或双语改写 | 通读必要邻文，保持观点、对比条件、数字、归属与不确定度一致 |
 | 正式投稿或交付准备 | 运行 [lint_manuscript.py](scripts/lint_manuscript.py) 与 [check_internal_links.py](scripts/check_internal_links.py) 排查中圆点标题、残留内部标签、Markdown 数字引文乱序与多处同步刷括号；节选传 `--fragment`，TeX 引文另核编译产物，核验图文与实际渲染页面 |
 
-语言、篇章推进与最终定稿由主笔统一维护。当全文重构与密集对照构成独立负担时，按 [协作与改动传播](references/collaboration.md) 与 `scientific-editorial-review` 增派一位只读研究比较编辑同稿并行；正式科研交付物且涉实质科学判断时，调用 [academic-reviewer](../academic-reviewer/SKILL.md) 完成一次独立学术审计。
+语言、篇章推进与最终定稿由主笔统一维护，**默认不自动增配编辑子代理**。仅当用户明确要求编辑审校，或全文重构伴随密集独立文献对照确需分担时，才按 [协作与改动传播](references/collaboration.md) 增派至多一位只读编辑（不与 `academic-reviewer` 默认并行叠加）；正式科研交付物且涉实质科学判断时，按触发条件调用 [academic-reviewer](../academic-reviewer/SKILL.md) 完成一次独立学术审计。
 
 ## 整合、核查与交付
 

@@ -30,7 +30,7 @@ description: Polish and calibrate existing scientific prose, paragraphs, caption
 
 从零起草、体裁选择或结构重构由 [scientific-drafting](../scientific-drafting/SKILL.md) 统筹；普通修辞与图注修改在本技能内完成。仅当用户要求完稿指标诊断及前后复测时使用 `lieflat-less-ai-tone`（如本地已安装该可选指标诊断技能），不叠加到日常润色。
 
-聊天讨论与直接贴入的草稿默认在聊天交付。要求保存、维护既有页面或新建长期迭代正式文档时，按 [主稿与交付](references/notion-tex-workflow.md) 操作：改前读、保留手改、改后回读并附链接。已有 Markdown/TeX 项目不自动迁移；只在任务需要时输出 TeX/PDF，不另加定稿确认。
+聊天讨论与直接贴入的草稿默认在聊天交付。要求保存、维护既有页面或新建长期迭代正式文档时，按 [主稿与交付](references/notion-tex-workflow.md) 操作：改前读、保留手改、仅在结构大改/批量替换/表行替换后局部回读并附链接（局部单段更新接口返回成功即直接交付链接，不整页重拉）。已有 Markdown/TeX 项目不自动迁移；只在任务需要时输出 TeX/PDF，不另加定稿确认。
 
 ## 交付核验
 

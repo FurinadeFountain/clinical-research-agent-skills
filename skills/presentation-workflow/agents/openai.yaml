@@ -1,4 +1,4 @@
 interface:
   display_name: "幻灯片制作与交付"
-  short_description: "按任务范围组织幻灯片制作、模板与原生对象保留、独立审阅和实际交付核验"
-  default_prompt: "请使用 $presentation-workflow 完成幻灯片制作或修订，保留指定模板和原生可编辑对象，并核验实际交付结果。"
+  short_description: "按任务范围组织幻灯片制作、模板与原生对象保留、轻量结构自检与快速交付"
+  default_prompt: "请使用 $presentation-workflow 完成幻灯片制作或修订，保留指定模板和原生可编辑对象，完成秒级结构自检后直接交付文件路径。"
