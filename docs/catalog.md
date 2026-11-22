@@ -8,10 +8,10 @@
 
 | 路径 | 职责说明 |
 | --- | --- |
-| [`AGENTS.md`](../AGENTS.md) | 跨 Harness 共用的全局默认规则核心（Shared Core），定义先行判断、最小复现根因排障、防卡死边界与分层核验、一手证据定标、体裁路标路由、交付真值源与安全边界 |
+| [`AGENTS.md`](../AGENTS.md) | 跨 Harness 共用的全局默认规则核心（Shared Core），定义先行判断、最小复现根因排障、防卡死边界、决策账本与廉价证伪门禁、一手证据定标、体裁路标路由、交付真值源与安全边界 |
 | [`hosts/codex.md`](../hosts/codex.md) | Codex 环境下的子代理隔离、`worktree` 并行改码与独立审阅衔接补充示例 |
 | [`hosts/antigravity-app.md`](../hosts/antigravity-app.md) | Antigravity 原生客户端环境下的模型继承、`swarm` 协作与 MCP 命令行兜底补充示例 |
-| [`hosts/t3-antigravity.md`](../hosts/t3-antigravity.md) | T3 Code 多提供方环境下的异构模型委派（`delegate_task`）与跨家族交叉审计补充示例 |
+| [`hosts/t3-antigravity.md`](../hosts/t3-antigravity.md) | T3 Code / Antigravity 环境下的统一 `delegate_task` 委派、跨家族能力互补与提供方对齐、后台命令防卡死及原子渲染防雷补充示例 |
 | [`scripts/lint_agent_configs.py`](../scripts/lint_agent_configs.py) | 仓库自检门禁：校验全局指令字符预算上限、YAML Frontmatter、全仓相对链接完整性与脚本头可移植性 |
 | [`.github/workflows/check.yml`](../.github/workflows/check.yml) | GitHub Actions 自动检查工作流：推送至 `main` 分支、提交 Pull Request 或手动触发时在云端运行 `make check` |
 | [`docs/workflow-overview.html`](workflow-overview.html) | 技能拓扑与静态门禁架构图的瑞士国际主义排版网页源码（导出成品见 [`docs/assets/skill-architecture.png`](assets/skill-architecture.png)） |
@@ -25,9 +25,11 @@
 
 ### 1. 问题立意与开放分歧校准
 
-- **[`research-ideation`](../skills/research-ideation/SKILL.md)**：临床判别盲区与病理生理矛盾切入、可区分竞争假说构造及早期构思缓置
+- **[`research-ideation`](../skills/research-ideation/SKILL.md)**：L0 现实约束与问题/平台双路由、L1 廉价证伪与“科学死罪 vs 可修毛病”分离、临床判别盲区切入及一页纸拍板闸门
+  - [`references/falsification-and-ledger.md`](../skills/research-ideation/references/falsification-and-ledger.md)：Stage 0 现实约束三态表、问题/平台双路由、L1 廉价证伪门禁、L1 → L2 拍板闸门与项目级《决策与淘汰账本》（`DECISIONS.md`）
   - [`references/ideation-methods.md`](../skills/research-ideation/references/ideation-methods.md)：现象断口拆解、代表作认知边界合围与决定性判别实验设计方法
-  - [`references/parallel-collaboration.md`](../skills/research-ideation/references/parallel-collaboration.md)：多路独立构思探索与收敛规则
+  - [`references/parallel-collaboration.md`](../skills/research-ideation/references/parallel-collaboration.md)：多模型能力互补分工、三段式最小闭环编排、一手出处回执核验与正式文档对外脱敏规则
+  - [`references/evaluation.md`](../skills/research-ideation/references/evaluation.md)：技能维护、规则减法瘦身与五类匿名化历史失效原型回归评测规范
 - **[`web-model-consultation`](../skills/web-model-consultation/SKILL.md)**：一手文献核查后仍存重大开放分歧时的跨模型对称质询与证据回溯规程
 
 ### 2. 生物医学证据路由、全文获取与单细胞组学
@@ -54,7 +56,7 @@
 
 - **[`scientific-editorial-review`](../skills/scientific-editorial-review/SKILL.md)**：重排或压缩后的目标读者视角审校，排查前置概念倒置、指代断层与互为依托前提误删
 - **[`academic-reviewer`](../skills/academic-reviewer/SKILL.md)**：正式交付物完稿节点的零历史只读学术审计，“1 轮全审 + 条件触发至多 1 轮局部复核”封顶与三级分流漏斗
-  - [`references/audit-rubric.md`](../skills/academic-reviewer/references/audit-rubric.md)：原始证据逆查、独立实验单位核验、混杂替代解释与四级审计裁决标准
+  - [`references/audit-rubric.md`](../skills/academic-reviewer/references/audit-rubric.md)：原始证据与补图/勘误逆查、实证数据卫生基线、物理守恒与功能终点核验、独立实验单位及四级审计裁决标准
 
 ### 5. 科研制图、学术汇报与核验型题录管理
 

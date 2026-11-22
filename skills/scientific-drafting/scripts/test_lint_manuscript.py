@@ -84,6 +84,29 @@ class CitationTests(unittest.TestCase):
         self.assertEqual(errors, [])
         self.assertTrue(any("overloaded Chinese sentence" in w for w in warnings))
 
+    def test_internal_workflow_meta_leaks_and_pipe_headings_caught(self):
+        leaked = (
+            "## 候选一｜经 Stage 2 反方审计筛选\n\n"
+            "本稿为多代理科研构思修订版，经 Stage 1 三路正交探索与反方查新审计。\n"
+            "详见 transcript-raw.txt（L29–38），剔除破框初探 3A 与旧初稿方向二。\n"
+        )
+        errors, _, _ = self.check(leaked, fragment=True)
+        joined = "\n".join(errors)
+        self.assertIn("pipe keyword chain", joined)
+        self.assertIn("[heading]: leaked internal workflow stage label", joined)
+        self.assertIn("internal workflow stage label", joined)
+        self.assertIn("internal draft branch label", joined)
+        self.assertIn("raw transcript line ref", joined)
+
+    def test_clinical_staging_and_lumbar_levels_not_flagged(self):
+        clean_clinical = (
+            "## Methods\n\n"
+            "Patients with KDIGO Stage 2 acute kidney injury or TNM Stage 1 lung cancer were screened. "
+            "Spinal landmarks spanned L1–L5 and L929 cells served as control.\n"
+        )
+        errors, _, _ = self.check(clean_clinical, fragment=True)
+        self.assertEqual(errors, [])
+
 
 if __name__ == "__main__":
     unittest.main()

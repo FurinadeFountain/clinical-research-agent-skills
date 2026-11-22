@@ -25,6 +25,8 @@ description: Structure, draft, or substantially restructure scientific papers, r
 
 ## 依据梳理与骨架搭建
 
+若项目维护《决策与淘汰账本》（根目录 `DECISIONS.md` 或 Notion 顶部决策区），起草或重构前先读取已核实硬约束、已淘汰路线死因及导师反馈；未通过 L1 廉价证伪与方向拍板的早期设想，不提前扩写为完整 SOP 或重资产交付物（见 [现实边界、廉价证伪与决策账本](../research-ideation/references/falsification-and-ledger.md)）。
+
 围绕决定论点的关键材料记录四项要素：来源位置、实际比较前提、观察发现及其成立条件、支撑的论证环节，并明确区分一手研究结果、原作者推断、本稿综合判断与拟议假说。
 
 实质性起草或重构前，先明确各节论证任务、核心依据与相邻推进关系；短文可在上下文直接成稿。细节密度与关键条件保留遵循 [共用落位原则](../scientific-prose/SKILL.md#条件保留与细节落位)。修订旧稿前，梳理适用的用户更正、共享定义与核心前提；成稿后对照原稿与一手依据逐个核对研究对象、模型、比较条件与适用范围，具体流程见 [协作与改动传播](references/collaboration.md)。

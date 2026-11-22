@@ -24,6 +24,7 @@ from collections import defaultdict
 from pathlib import Path
 
 MIDDLE_DOT_RE = re.compile(r"[·・]")
+PIPE_CHAIN_RE = re.compile(r"[|｜]")
 PROMPT_COLON_RE = re.compile(
     r"(一句话总结|核心在于|关键在于|核心结论|先说结论)\s*[：:]"
 )
@@ -33,6 +34,24 @@ INTERNAL_TAG_PATTERNS = [
     ("internal route label", re.compile(r"路线\s*[A-D]\b")),
     ("raw audit verdict token", re.compile(r"\bVERDICT\s*:\s*(?:FAIL|WARN|PASS|INCOMPLETE)\b")),
     ("raw audit finding prefix", re.compile(r"(?:^|\s)(?:FAIL|WARN)\s*\d*\s*:")),
+    (
+        "internal workflow stage label",
+        re.compile(
+            r"(?:\bStage\s*[1-4]\s*(?:三路|双路|多路|并行|独立|正交|探索|反方|查新|审计|验毒|主裁|裁决|汇总)"
+            r"|(?:多代理|多模型跨家族)[^\n。；]{0,8}(?:构思|探索|审计|修订))"
+        ),
+    ),
+    (
+        "internal draft branch label",
+        re.compile(
+            r"(?:破框初探\s*\d+[A-Z]|(?:旧初稿|初稿)\s*方向\s*[一二三四五1-9]"
+            r"|反方(?:查新|信号处理)(?:审计|淬火|主裁))"
+        ),
+    ),
+    (
+        "raw transcript line ref",
+        re.compile(r"(?<![A-Za-z0-9_])L\d{2,4}\s*[–—-]\s*\d{2,4}\b|(?<![A-Za-z0-9_])transcript-raw\.txt\b"),
+    ),
 ]
 SPINE_HEADING_RE = re.compile(
     r"(摘要|abstract|研究目标|objectives?|关键科学问题|立项依据|引言|introduction)",
@@ -278,10 +297,20 @@ def lint_file(path: Path, *, fragment: bool = False) -> tuple[list[str], list[st
                 errors.append(
                     f"L{idx}: heading uses middle-dot keyword chain: '{heading_title}'"
                 )
+            if PIPE_CHAIN_RE.search(heading_title):
+                errors.append(
+                    f"L{idx}: heading uses pipe keyword chain: '{heading_title}'"
+                )
             if PROMPT_COLON_RE.search(heading_title):
                 errors.append(
                     f"L{idx}: heading uses conclusion-prompt colon: '{heading_title}'"
                 )
+            for label, pat in INTERNAL_TAG_PATTERNS:
+                m = pat.search(heading_title)
+                if m:
+                    errors.append(
+                        f"L{idx} [heading]: leaked {label} '{m.group(0).strip()}'"
+                    )
             continue
 
         if in_bibliography:
